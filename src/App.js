@@ -37,7 +37,7 @@ class App extends React.Component {
       content = <div>
         <ul>
           {
-            arr.map((ele, k) => <li key={k}>{ele.id}</li>
+            arr.map((ele, k) => <li key={k}><a href="#">{ele.id}</a></li>
             )}
         </ul>
       </div>
