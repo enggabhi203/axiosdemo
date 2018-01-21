@@ -138,14 +138,12 @@ class App extends React.Component {
       content = <div className="loader"></div>
 
     } else {
-      console.log(this.state.data);
+      console.log(this.state.data,'Abhishek');
       content = <div>
         <ul>
           {
             arr.map((ele, k) => <li key={k}>{ele.id}</li>
             )}
-
-
         </ul>
       </div>
     }
@@ -157,6 +155,4 @@ class App extends React.Component {
   }
 
 }
-
-
 export default App
