@@ -15,7 +15,6 @@ class App extends React.Component {
   componentWillMount() {
     axios.get('http://rest.learncode.academy/api/wstern/users')
       .then((response) => {
-        // console.log(response);
         this.setState({
           data: response.data,
           loading: false
@@ -31,7 +30,6 @@ class App extends React.Component {
     let arr = this.state.data
     if (this.state.loading === true) {
       content = <div className="loader"></div>
-
     } else {
       console.log(this.state.data,'Abhishek');
       content = <div>
