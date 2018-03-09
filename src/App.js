@@ -1,51 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios'
+import React from 'react';
+
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: [],
-      loading: true
-    }
-  }
-
-  componentWillMount() {
-    axios.get('http://rest.learncode.academy/api/wstern/users')
-      .then((response) => {
-        this.setState({
-          data: response.data,
-          loading: false
-        })
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-  }
   render() {
-    let content
-    let arr = this.state.data
-    if (this.state.loading === true) {
-      content = <div className="loader"></div>
-    } else {
-      console.log(this.state.data,'Abhishek');
-      content = <div>
-        <ul>
-          {
-            arr.map((ele, k) => <li key={k}><a href="#">{ele.id}</a></li>
-            )}
-        </ul>
-      </div>
-    }
+    let { inp1, inp2, inp3 } = this.refs
     return (
       <div>
-        {content}
-      </div>
-    )
-  }
+        <input ref={node => {
+          inp1 = node
+        }} type="text" /> <br /><p></p>
+        <input ref={node => {
+          inp2 = node
+        }} type="text" /><br /><p></p>
+        <input ref={node => {
+          inp3 = node
+        }} type="text" />  <br /><p></p>
+        <button onClick={() => {
+          console.log(inp1.value, inp2.value, inp3);
+          inp3.value = (Number(inp1.value) + Number(inp2.value))
+        }}> Calc </button>
 
+      </div>
+    );
+  }
 }
-export default App
+
+export default App;
